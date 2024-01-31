@@ -1,3 +1,11 @@
+/* O "*" é um seletor universal ou seja ele engloba todo o conteudo das paginas 
+nesse caso adicionei a fonte e a cor da fonte*/
+* {
+    font-family: "Fraunces" serif;
+    color: #7630D9;
+}
+
+/* Nesse campo adicionei a cor de fundo da página*/
 body {
     background-color: #D4C2AD;
 }
