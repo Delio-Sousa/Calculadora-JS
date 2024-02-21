@@ -1,18 +1,34 @@
 class Display {
-    constructor(displayValorAnterior, displayValorAtual){
+    constructor(displayValorAnterior, displayValorAtual) {
         this.displayValorAtual = displayValorAtual;
         this.displayValorAnterior = displayValorAnterior;
-        this.calculadora = new Calculadora();
+        this.calcular = new Calculadora();
+        this.tipoOperação = undefined;
         this.valorAtual = '';
         this.valorAnterior = '';
     }
 
-    agregarNumero(numero){
-        this.valorAtual = numero;
-        this.imprimirValores(); 
+    excluir() {
+        this.valorAtual = this.valorAtual.toString().slice(0, -1)
+        this.imprimirValores();
     }
 
-    imprimirValores(){
+    excluirTudo() {
+        this.valorAtual = '';
+        this.valorAnterior = '';
+        this.tipoOperação = undefined;
+        this.imprimirValores();
+    }
+
+    
+
+    agregarNumero(numero) {
+        if (numero === '.' && this.valorAtual.includes('.')) return
+        this.valorAtual = this.valorAtual.toString() + numero.toString();
+        this.imprimirValores();
+    }
+
+    imprimirValores() {
         this.displayValorAtual.textContent = this.valorAtual;
         this.displayValorAnterior.textContent = this.valorAnterior;
     }
