@@ -1,5 +1,5 @@
 class Calculadora {
-    soma(num1, num2) {
+    somar(num1, num2) {
         return num1 + num2;
     }
 

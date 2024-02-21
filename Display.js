@@ -6,6 +6,12 @@ class Display {
         this.tipoOperação = undefined;
         this.valorAtual = '';
         this.valorAnterior = '';
+        this.signos = {
+            somar: '+',
+            subtrair: '-',
+            multiplicar: 'x',
+            dividir: '%'
+        }
     }
 
     excluir() {
@@ -20,7 +26,13 @@ class Display {
         this.imprimirValores();
     }
 
-    
+    computar(tipo) {
+        this.tipoOperação !== 'igual' && this.conta();
+        this.tipoOperação = tipo;
+        this.valorAnterior = this.valorAtual || this.valorAnterior;
+        this.valorAtual = '';
+        this.imprimirValores();
+    }
 
     agregarNumero(numero) {
         if (numero === '.' && this.valorAtual.includes('.')) return
@@ -30,6 +42,14 @@ class Display {
 
     imprimirValores() {
         this.displayValorAtual.textContent = this.valorAtual;
-        this.displayValorAnterior.textContent = this.valorAnterior;
+        this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperação] || ''}`;
     }
-}
+
+    conta() {
+        const valorAnterior = parseFloat(this.valorAnterior);
+        const valorAtual = parseFloat(this.valorAtual);
+
+        if (isNaN(valorAtual) || isNaN(valorAnterior)) return
+        this.valorAtual = this.calcular[this.tipoOperação](valorAnterior, valorAtual);
+    }
+}   

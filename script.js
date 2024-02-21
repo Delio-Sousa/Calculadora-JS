@@ -15,3 +15,7 @@ const display = new Display(displayValorAnterior, displayValorAtual);
 botãoNumeros.forEach(botão => {
     botão.addEventListener('click', () => display.agregarNumero(botão.innerHTML));
 });
+
+botãoOperador.forEach(botão => {
+    botão.addEventListener('click', () => display.computar(botão.value))
+});
