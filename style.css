@@ -1,5 +1,7 @@
 /* O "*" é um seletor universal ou seja ele engloba todo o conteudo das paginas 
 nesse caso adicionei a fonte e a cor da fonte*/
+
+/*color define a cor do texto dentro de um elemento.*/
 * {
     font-family: "Fraunces" serif;
     color: #000000;
@@ -7,8 +9,11 @@ nesse caso adicionei a fonte e a cor da fonte*/
 
 /* Nesse campo adicionei a cor de fundo da página*/
 body {
-    background-color: #262626;
+    background: radial-gradient(circle, #144E73, #609BBF);
 }
+
+/*display define como o elemento html vai ser formatado na renderização da pagina: block, inline, flex, grid,none*/
+/*justify-content é usada quando voce deseja alinhar ou distribuir os itens horizontalmentes em um layout flexivel*/
 
 .fundo {
     display: flex;
@@ -21,7 +26,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 75px);
     grid-template-rows: 160px repeat(5, 75px);
-    background-color: #13678A;
+    background-color: #67151B;
     padding: 15px;
     border-radius: 32px;
     box-shadow: 15px 10px 0px 5px #00000033;
@@ -50,7 +55,7 @@ button:focus {
     grid-column: span 2;
 }
 
-.tela {
+.display {
     grid-column: 1 / -1;
     padding: 16px;
     display: flex;
@@ -68,6 +73,7 @@ button:focus {
 #valor-atual {
     font-size: 1.5em;
 }
+
 #valor-anterior {
     font-size: 2em;
 }
